@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bo.afcoop.rec.dao.AdmEnlaceDAO">
+    <resultMap id="admEnlaceMap" type="bo.afcoop.rec.dto.AdmEnlace">
+        <id property="idAdmEnlace" column="id_adm_enlace" />
+        <result property="admModuloId" column="adm_modulo_id"  />
+        <result property="descripcion" column="descripcion" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateBy" column="update_by" />
+        <result property="insertTime" column="insert_time" />
+        <result property="updateTime" column="update_time;" />
+        <result property="estado" column="estado" />
+    </resultMap>
+    <resultMap id="admEnlaceMapIntegrado" type="bo.afcoop.rec.dto.AdmEnlace">
+        <id property="idAdmEnlace" column="id_adm_enlace" />
+        <result property="admModuloId" column="adm_modulo_id"  />
+        <result property="descripcion" column="descripcion" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateBy" column="update_by" />
+        <result property="insertTime" column="insert_time" />
+        <result property="updateTime" column="update_time;" />
+        <result property="estado" column="estado" />
+        <collection property="admMenus" ofType="bo.afcoop.rec.dto.AdmMenu" columnPrefix="men_">
+            <id property="idAdmMenu" column="id_adm_menu"  />
+            <result property="descripcion" column="descripcion"  />
+            <result property="url" column="url" />
+            <result property="insertBy" column="insert_by" />
+            <result property="updateBy" column="update_by" />
+            <result property="insertTime" column="insert_time" />
+            <result property="updateTime" column="update_time;" />
+            <result property="estado" column="estado" />
+        </collection>
+    </resultMap>
+    
+    <select id="listarAdmEnlaces" resultMap="admEnlaceMap" parameterType="bo.afcoop.rec.dto.AdmEnlace">
+        select * from adm_enlace
+        where estado=1;
+    </select>
+    <select id="listarAdmEnlacesIntegrado" resultMap="admEnlaceMapIntegrado" parameterType="bo.afcoop.rec.criteria.CritAdmEnlace">
+        select e.*,m.id_adm_menu as men_id_adm_menu, m.descripcion as men_descripcion, m.url as men_url
+        from adm_enlace e
+        inner join adm_modulo_enlace me on me.adm_enlace_id=e.id_adm_enlace and me.estado=1
+        left join adm_enlace_menu em on em.adm_enlace_id=e.id_adm_enlace and em.estado=1
+        left join adm_menu m on m.id_adm_menu=em.adm_menu_id and m.estado=1
+        where 1=1
+        and me.adm_modulo_id=1
+    </select>
+   
+</mapper>

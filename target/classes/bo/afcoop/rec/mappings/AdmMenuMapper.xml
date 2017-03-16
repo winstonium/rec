@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bo.afcoop.rec.dao.AdmMenuDAO">
+    <resultMap id="admUsuarioMap" type="bo.afcoop.rec.dto.AdmMenu">
+        <id property="idAdmMenu" column="id_adm_usuario"  />
+            <result property="descripcion" column="descripcion"  />
+            <result property="url" column="url" />
+            <result property="insertBy" column="insert_by" />
+            <result property="updateBy" column="update_by" />
+            <result property="insertTime" column="insert_time" />
+            <result property="updateTime" column="update_time;" />
+            <result property="estado" column="estado" />
+    </resultMap>
+    
+   <select id="listarAdmMenus" resultMap="admUsuarioMap" parameterType="bo.afcoop.rec.dto.AdmMenu">
+      select * from adm_usuario
+      where estado=1;
+   </select>
+   
+</mapper>

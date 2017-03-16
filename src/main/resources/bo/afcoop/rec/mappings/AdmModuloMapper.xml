@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bo.afcoop.rec.dao.AdmModuloDAO">
+    <resultMap id="admModuloMap" type="bo.afcoop.rec.dto.AdmModulo">
+        <id  property="idAdmModulo"  column="id_adm_modulo"/>
+        <result property="descripcion" column="descripcion"  />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateBy"  column="update_by" />
+        <result property="insertTime" column="insert_time"  />
+        <result property="updateTime" column="update_time;"  />
+        <result property="estado" column="estado"  />
+    </resultMap>
+    
+    <resultMap id="admModuloMapIntegrado" type="bo.afcoop.rec.dto.AdmModulo">
+        <id  property="idAdmModulo"  column="id_adm_modulo"/>
+        <result property="descripcion" column="descripcion"  />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateBy"  column="update_by" />
+        <result property="insertTime" column="insert_time"  />
+        <result property="updateTime" column="update_time;"  />
+        <result property="estado" column="estado"  />
+        <collection property="admEnlaces" ofType="bo.afcoop.rec.dto.AdmEnlace">
+            <id property="idAdmEnlace" column="id_adm_enlace"/>
+            <result property="descripcion" column="descripcion"/>
+            <result property="url" column="url"/>
+            <result property="insertBy" column="insert_by" />
+            <result property="updateBy"  column="update_by" />
+            <result property="insertTime" column="insert_time"  />
+            <result property="updateTime" column="update_time;"  />
+            <result property="estado" column="estado"  />
+        </collection>
+    </resultMap>
+    
+    <select id="listarAdmModulos" resultMap="admModuloMap" parameterType="bo.afcoop.rec.dto.AdmModulo">
+        select * from adm_modulo
+        where estado=1;
+    </select>
+    <select id="listarAdmModulosIntegrado" resultMap="admModuloMapIntegrado" parameterType="bo.afcoop.rec.dto.AdmModulo">
+        select 
+        m.*,e.*
+        from adm_modulo m 
+        inner join adm_modulo_enlace me on me.adm_modulo_id=m.id_adm_modulo
+        inner join adm_enlace e on e.id_adm_enlace=me.adm_enlace_id
+        where m.estado=1
+        and me.estado=1
+        and e.estado=1
+    </select>
+   
+</mapper>

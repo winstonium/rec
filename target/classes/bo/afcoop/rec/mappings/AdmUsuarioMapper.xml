@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bo.afcoop.rec.dao.AdmUsuarioDAO">
+    <resultMap id="admUsuarioMap" type="bo.afcoop.rec.dto.AdmUsuario">
+        <id column="id_adm_usuario" property="idAdmUsuario" />
+        <result column="usuario" property="usuario" />
+        <result column="contrasenia" property="contrasenia" />
+        <result column="observacion" property="observacion" />
+        <result column="insert_by" property="insertBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="insert_time" property="insertTime" />
+        <result column="update_time;" property="updateTime" />
+        <result column="estado" property="estado" />
+        
+    </resultMap>
+    
+    <select id="listarAdmUsuarios" resultMap="admUsuarioMap" parameterType="bo.afcoop.rec.dto.AdmUsuario">
+        select * from adm_usuario
+        where estado=1;
+    </select>   
+    <select id="obtenerUsuario" resultMap="admUsuarioMap" parameterType="bo.afcoop.rec.dto.AdmUsuario">
+        select * from adm_usuario u
+        where u.estado=1
+        <if test="idAdmUsuario != null">
+            and u.id_adm_usuario = #{idAdmUsuario}
+        </if>
+    </select>   
+</mapper>

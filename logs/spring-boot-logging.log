@@ -1,0 +1,7 @@
+2017-03-07 09:38:07.578  INFO 10452 --- [main] bo.afcoop.rec.RecApplication             : Starting RecApplication on WINS-PC with PID 10452 (C:\Users\Usuario\Documents\NetBeansProjects\rec\target\classes started by Usuario in C:\Users\Usuario\Documents\NetBeansProjects\rec)
+2017-03-07 09:38:07.578  INFO 10452 --- [main] bo.afcoop.rec.RecApplication             : No active profile set, falling back to default profiles: default
+2017-03-07 09:38:09.912  INFO 10452 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-03-07 09:38:09.912  INFO 10452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.11
+2017-03-07 09:38:09.974  INFO 10452 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/rec]    : Initializing Spring embedded WebApplicationContext
+2017-03-07 09:38:11.405  INFO 10452 --- [main] bo.afcoop.rec.RecApplication             : Started RecApplication in 4.061 seconds (JVM running for 4.308)
+2017-03-07 09:38:27.649  INFO 10452 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/rec]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
