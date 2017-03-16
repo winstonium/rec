@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 //@CrossOrigin(origins = "http://localhost", maxAge = 3600)
 @RestController
-@RequestMapping(value="/")
+@RequestMapping(value="/admin")
 public class AdmUsuarioController {
 
     @Autowired
@@ -36,6 +36,7 @@ public class AdmUsuarioController {
         System.out.println("WIN: Listando Usuarios.");
         return admUsuarios;
     }
+    //OBTENER USUARIO SEGÚN PARÁMETROS DESDE LA VISTA
     @RequestMapping(value="/usuario/{idAdmUsuario}", method = RequestMethod.GET)
     public AdmUsuario doObtenerUsuario(@PathVariable("idAdmUsuario") Integer idAdmUsuario) {
         AdmUsuario admUsuario=new AdmUsuario();
