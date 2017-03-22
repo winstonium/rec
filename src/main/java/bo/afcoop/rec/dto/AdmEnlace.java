@@ -14,7 +14,7 @@ public class AdmEnlace  implements java.io.Serializable {
 
 
      private Integer idAdmEnlace;
-     private Integer admModuloId;
+     private Integer idAdmModulo;
      private String descripcion;
      private Integer insertBy;
      private Integer updateBy;
@@ -31,11 +31,11 @@ public class AdmEnlace  implements java.io.Serializable {
     }
 
     public Integer getAdmModuloId() {
-        return admModuloId;
+        return idAdmModulo;
     }
 
-    public void setAdmModuloId(Integer admModuloId) {
-        this.admModuloId = admModuloId;
+    public void setAdmModuloId(Integer idAdmModulo) {
+        this.idAdmModulo = idAdmModulo;
     }
     
     public void setIdAdmEnlace(Integer idAdmEnlace) {
