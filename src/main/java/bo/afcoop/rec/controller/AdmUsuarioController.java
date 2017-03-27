@@ -38,9 +38,17 @@ public class AdmUsuarioController {
     }
     //OBTENER USUARIO SEGÚN PARÁMETROS DESDE LA VISTA
     @RequestMapping(value="/usuario/{idAdmUsuario}", method = RequestMethod.GET)
-    public AdmUsuario doObtenerUsuario(@PathVariable("idAdmUsuario") Integer idAdmUsuario) {
+    public AdmUsuario doObtenerUsuario(@PathVariable("idAdmUsuario") Long idAdmUsuario) {
         AdmUsuario admUsuario=new AdmUsuario();
         admUsuario.setIdAdmUsuario(idAdmUsuario);
+        admUsuario = admUsuarioService.obtenerUsuario(admUsuario);
+        return admUsuario;
+    }
+    @RequestMapping(value="/usuario/usuarioLogueado/{usuario}", method = RequestMethod.GET)
+    public AdmUsuario doObtenerUsuario(@PathVariable("usuario") String usuario) {
+        AdmUsuario admUsuario=new AdmUsuario();
+        admUsuario.setUsuario(usuario);
+        System.out.println("WIN: Verificando usuario logueado. "+usuario);
         admUsuario = admUsuarioService.obtenerUsuario(admUsuario);
         return admUsuario;
     }

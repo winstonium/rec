@@ -26,5 +26,8 @@
         <if test="idAdmUsuario != null">
             and u.id_adm_usuario = #{idAdmUsuario}
         </if>
+        <if test="usuario != null">
+            and u.usuario = #{usuario}
+        </if>
     </select>   
 </mapper>

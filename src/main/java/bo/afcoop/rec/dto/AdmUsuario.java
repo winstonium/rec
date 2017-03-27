@@ -10,13 +10,13 @@ import java.util.Set;
  */
 public class AdmUsuario implements java.io.Serializable {
 
-    private int idAdmUsuario;
+    private Long idAdmUsuario;
     //private AdmPersona admPersona;
     private String usuario;
     private String contrasenia;
     private String observacion;
-    private int insertBy;
-    private int updateBy;
+    private Long insertBy;
+    private Long updateBy;
     private Date insertTime;
     private Date updateTime;
     private Integer estado;
@@ -25,21 +25,11 @@ public class AdmUsuario implements java.io.Serializable {
     public AdmUsuario() {
     }
 
-    public AdmUsuario(int idAdmUsuario, String usuario, String contrasenia, int insertBy, int updateBy, Date insertTime, Date updateTime) {
-        this.idAdmUsuario = idAdmUsuario;
-        this.usuario = usuario;
-        this.contrasenia = contrasenia;
-        this.insertBy = insertBy;
-        this.updateBy = updateBy;
-        this.insertTime = insertTime;
-        this.updateTime = updateTime;
-    }
-
-    public int getIdAdmUsuario() {
+    public Long getIdAdmUsuario() {
         return this.idAdmUsuario;
     }
 
-    public void setIdAdmUsuario(int idAdmUsuario) {
+    public void setIdAdmUsuario(Long idAdmUsuario) {
         this.idAdmUsuario = idAdmUsuario;
     }
 
@@ -67,19 +57,19 @@ public class AdmUsuario implements java.io.Serializable {
         this.observacion = observacion;
     }
 
-    public int getInsertBy() {
+    public Long getInsertBy() {
         return this.insertBy;
     }
 
-    public void setInsertBy(int insertBy) {
+    public void setInsertBy(Long insertBy) {
         this.insertBy = insertBy;
     }
 
-    public int getUpdateBy() {
+    public Long getUpdateBy() {
         return this.updateBy;
     }
 
-    public void setUpdateBy(int updateBy) {
+    public void setUpdateBy(Long updateBy) {
         this.updateBy = updateBy;
     }
 
