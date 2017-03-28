@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bo.afcoop.rec.dao.RegCooperativa">
+    <resultMap id="regCooperativaMap" type="bo.afcoop.rec.dto.RegCooperativa">
+        <id column="id_cooperativa" property="idCooperativa" />
+        <result column="nro_registro" property="nroRegistro" />
+        <result column="denominacion" property="denominacion" />
+        <result column="razon_social" property="razonSocial" />
+        <result column="fec_fundacion" property="fecFundacion" />
+        <result column="fec_reg_sirenco" property="fecRegSirenco" />
+        <result column="observacion" property="observacion" />
+        <result column="id_usuario_registro" property="idUsuarioRegistro" />
+        <result column="id_usuario_modificacion" property="idUsuarioModificacion" />
+        <result column="fec_registro" property="fecRegistro" />
+        <result column="fec_modificacion" property="fecModificacion" />
+        <result column="estado" property="estado" />
+    </resultMap>
+    
+    <select id="listarCooperativas" resultMap="regCooperativaMap" parameterType="bo.afcoop.rec.dto.RegCooperativa">
+        select * from gen_cooperativa
+        where estado=1;
+    </select>   
+    <select id="obtenerCooperativa" resultMap="regCooperativaMap" parameterType="bo.afcoop.rec.dto.RegCooperativa">
+        select * from reg_cooperativa c
+        where c.estado=1
+        <if test="idCooperativa != null">
+            and c.id_cooperativa = #{idCooperativa}
+        </if>        
+    </select>   
+     
+</mapper>

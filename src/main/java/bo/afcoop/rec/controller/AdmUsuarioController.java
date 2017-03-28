@@ -6,7 +6,9 @@
 package bo.afcoop.rec.controller;
 
 import bo.afcoop.rec.dto.AdmUsuario;
+import bo.afcoop.rec.dto.RegCooperativa;
 import bo.afcoop.rec.service.AdmUsuarioService;
+import bo.afcoop.rec.service.RegCooperativaService;
 import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class AdmUsuarioController {
 
     @Autowired
     private AdmUsuarioService admUsuarioService;
+    
+//    @Autowired
+//    private RegCooperativaService regCooperativaService;
 
     @RequestMapping("/usuarios")
     public List<AdmUsuario> user() {
@@ -52,4 +57,12 @@ public class AdmUsuarioController {
         admUsuario = admUsuarioService.obtenerUsuario(admUsuario);
         return admUsuario;
     }
+    
+    
+//    @RequestMapping("/cooperativas")
+//    public List<RegCooperativa> doListarCooperativas() {
+//        List<RegCooperativa> regCooperativas = regCooperativaService.listarCooperativas();
+//        System.out.println("WIN: Listando Cooperativas.");
+//        return regCooperativas;
+//    }
 }
